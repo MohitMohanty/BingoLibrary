@@ -1,0 +1,27 @@
+﻿@model IEnumerable<BookDetail>
+
+@{
+    ViewData["Title"] = "ExploreBooks";
+}
+
+<h1>ExploreBooks</h1>
+<div class="container">
+    <div class="row">
+        @foreach (var obj in Model)
+        {
+             var imgPath = "~/images/Books/" + (obj.BookTitle + ".png");
+            var searchPath = "https://www.google.com/search?q=" + obj.BookTitle;
+            <div class="col-sm-4">
+                <div class="card bookImg">
+                    <img src="@imgPath" style="width:300px;height:300px" class="card-img-top" asp-append-version=true />
+                    <div class="card-body">
+                        <h5 class="card-title">@obj.BookTitle</h5>
+                        <p class="card-text">@obj.BookDescription</p>
+                        <a href="@searchPath" class="btn btn-primary">Search Online</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

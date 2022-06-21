@@ -1,0 +1,92 @@
+﻿@model ContactUsData
+@{
+    ViewData["Title"] = "Contact Us";
+}
+<center><h1>@ViewData["Title"]</h1></center>
+<hr />
+<div class="container align-content-center">
+    <section class="mb-4">
+        <p class="text-center w-responsive mx-auto mb-5">
+            Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
+            a matter of hours to help you.
+        </p>
+        <div class="row">
+            <div class="col-md-9 mb-md-0 mb-5">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="md-form mb-0">
+                                <label asp-for="SenderName" class="">Your name</label>
+                                <input type="text" asp-for="SenderName" class="form-control">
+                                <span asp-validation-for="SenderName" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="md-form mb-0">
+                                <label asp-for="Email" class="">Your email</label>
+                                <input type="email" asp-for="Email" class="form-control">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                <label asp-for="Subject" class="">Subject</label>
+                                <input type="text" asp-for="Subject" class="form-control">
+                                <span asp-validation-for="Subject" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="md-form">
+                                <label asp-for="Message">Your message</label>
+                                <textarea type="text" asp-for="Message" rows="2" class="form-control md-textarea"></textarea>
+                                <span asp-validation-for="Message" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="text-center text-md-left">
+                        <button class="btn btn-primary" type="submit">Send</button> &nbsp;&nbsp;
+                        <button class="btn btn-danger" type="reset">Reset</button>
+                    </div>
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-info">Back to home</a>
+                </form>
+                <div class="status"></div>
+            </div>
+            <div class="col-md-3 text-center">
+                <ul class="list-unstyled mb-0">
+                    <li>
+
+                        <i class="fas fa-map-marker-alt fa-2x"></i>
+                        <p>Berhampur, Laxmi Street, INDIA</p>
+                    </li>
+
+                    <li>
+                        <i class="fas fa-phone mt-4 fa-2x"></i>
+                        <p>+ 91 876 330 3400</p>
+                    </li>
+
+                    <li>
+                        <i class="fas fa-envelope mt-4 fa-2x"></i>
+                        <p>mohitmohanty549@gmail.com</p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </section>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
